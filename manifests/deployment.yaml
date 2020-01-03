@@ -49,5 +49,5 @@ spec:
                 key: mongoPassword
           ports:
           - containerPort: 8080
-      imagePullSecrets:
-        - name: docker-registry
+        imagePullSecrets:
+          - name: docker-registry
