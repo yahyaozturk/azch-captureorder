@@ -14,7 +14,7 @@ spec:
       spec:
         containers:
         - name: captureorder
-          image: uniqueacrname.azurecr.io/captureorder:placeholdertag # replace with your own repository. Due to a bug, leave the :placeholdertag tag in there to allow the pipeline to replace it
+          image: cciturkey.azurecr.io/azch/captureorder:latest
           imagePullPolicy: Always
           readinessProbe:
             httpGet:
@@ -32,8 +32,6 @@ spec:
               memory: "128Mi"
               cpu: "500m"
           env:
-          - name: TEAMNAME
-            value: 'team-azch' # will be patched at deployment time by value of 'teamName' in the variable group
           - name: MONGOHOST
             valueFrom:
               secretKeyRef:
@@ -50,4 +48,4 @@ spec:
                 name: mongodb
                 key: mongoPassword
           ports:
-          - containerPort: 80
+          - containerPort: 8080
